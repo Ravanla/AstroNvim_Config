@@ -55,7 +55,7 @@ M.on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>lf", vim.lsp.buf.formatting_sync, { desc = "Format code", buffer = 0 })
   vim.keymap.set("n", "<leader>lh", vim.lsp.buf.signature_help, { desc = "Signature help", buffer = 0 })
   vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename current symbol", buffer = 0 })
-  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename current symbol", buffer = 0 }) -- (DEPRECATED)
+  -- vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename current symbol", buffer = 0 }) -- (DEPRECATED)
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration of current symbol", buffer = 0 })
   vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Go to implementation of current symbol", buffer = 0 })
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Show the definition of current symbol", buffer = 0 })
@@ -87,6 +87,10 @@ M.on_attach = function(client, bufnr)
 end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities.offsetEncoding = { "utf-8", "utf-16" }
+-- require("lspconfig").clangd.setup { capabilities = M.capabilities }
+-- lspconfig.clangd.setup { capabilities = capabilities }
 M.capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities.textDocument.completion.completionItem.preselectSupport = true

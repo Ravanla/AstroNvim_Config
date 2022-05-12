@@ -14,7 +14,7 @@ utils.vim_opts(utils.user_plugin_opts("options", {
     copyindent = true, -- Copy the previous indentation on autoindenting
     cursorline = true, -- Highlight the text line of the cursor
     expandtab = true, -- Enable the use of space in tab
-    fileencoding = "utf-8", -- File content encoding for the buffer
+    fileencoding = "utf-16", -- File content encoding for the buffer
     fillchars = { eob = " " }, -- Disable `~` on nonexistent lines
     history = 100, -- Number of commands to remember in a history table
     ignorecase = true, -- Case insensitive searching
@@ -34,7 +34,7 @@ utils.vim_opts(utils.user_plugin_opts("options", {
     swapfile = false, -- Disable use of swapfile for the buffer
     tabstop = 2, -- Number of space in a tab
     termguicolors = true, -- Enable 24-bit RGB color in the TUI
-    timeoutlen = 300, -- Length of time to wait for a mapped sequence
+    timeoutlen = 700, -- Length of time to wait for a mapped sequence
     undofile = true, -- Enable persistent undo
     updatetime = 300, -- Length of time to wait before triggering the plugin
     wrap = false, -- Disable wrapping of lines longer than the width of window

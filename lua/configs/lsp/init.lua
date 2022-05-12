@@ -7,6 +7,11 @@ if status_ok then
 
   local servers = user_plugin_opts("lsp.servers", {})
   local installer_avail, lsp_installer = pcall(require, "nvim-lsp-installer")
+
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.offsetEncoding = { "utf-8", "utf-16" }
+  require("lspconfig").clangd.setup { capabilities = capabilities }
+  -- lspconfig.clangd.setup { capabilities = capabilities }
   if installer_avail then
     for _, server in ipairs(lsp_installer.get_installed_servers()) do
       table.insert(servers, server.name)

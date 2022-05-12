@@ -9,6 +9,13 @@ function M.config()
 
     vim.notify = notify
   end
+  vim.notify = function(msg, ...)
+    if msg:match("warning: multiple different client offset_encodings") then
+        return
+    end
+
+    notify(msg, ...)
+  end
 end
 
 return M
